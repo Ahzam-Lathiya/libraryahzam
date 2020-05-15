@@ -1,0 +1,1 @@
+This project is built on DJango, and it is a simple e-library. Lots of people can use it to do stuff like you know read the books and stuff etc.
