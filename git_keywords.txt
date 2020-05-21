@@ -1,0 +1,89 @@
+alternate object database
+bare repository
+blob object
+branch
+cache
+chain
+changeset
+checkout
+cherry-picking
+clean
+commit
+commit object
+commit-ish (also committish)
+core Git
+DAG
+dangling object
+detached HEAD
+directory
+dirty
+evil merge
+fast-forward
+fetch
+file system
+Git archive
+gitfile
+grafts
+hash
+head
+HEAD
+head ref
+hook
+index
+index entry
+master
+merge
+object
+object database
+object identifier
+object name
+object type
+octopus
+origin
+overlay
+pack
+pack index
+pathspec
+top
+literal
+icase
+glob
+attr
+exclude
+parent
+pickaxe
+plumbing
+porcelain
+per-worktree ref
+pseudoref
+pull
+push
+reachable
+rebase
+ref
+reflog
+refspec
+remote repository
+remote-tracking branch
+repository
+resolve
+revision
+rewind
+SCM
+SHA-1
+shallow clone
+shallow repository
+stash entry
+submodule
+superproject
+symref
+tag
+tag object
+topic branch
+tree
+tree object
+tree-ish (also treeish)
+unmerged index
+unreachable object
+upstream branch
+working tree

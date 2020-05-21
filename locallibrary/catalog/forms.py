@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
+from catalog.models import BookInstance
 import datetime  # for checking renewal date range.
 
 from django import forms
@@ -22,4 +23,23 @@ class RenewBookForm(forms.Form):
                 _('Invalid date - renewal more than 4 weeks ahead'))
 
         # Remember to always return the cleaned data.
+        return data
+
+class ReturnBookForm(forms.ModelForm):
+
+    class Meta:
+        model = BookInstance
+        fields = ['id', 'book', 'imprint', 'due_back', 'borrower', 'status']
+
+
+class ReserveBookForm(forms.Form):
+    reservation_date = forms.DateField()
+
+    def clean_renewal_date(self):
+        data = self.cleaned_data['reservation_date']
+
+        #CHeck if date not in past
+        if data < datetime.date.today():
+            raise ValidationError(_('Invalid date - reservation in past'))
+
         return data

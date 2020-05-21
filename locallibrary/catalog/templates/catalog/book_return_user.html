@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Return: {{book_instance.book.title}}</h1>
+    <p{% if book_instance.is_overdue %} class="text-danger"{% endif %}>Due date: {{book_instance.due_back}}</p>
+    <p{% if book_instance.is_overdue %} class="text-danger"{% endif %}>Fine: {{ book_instance.calculate_due }}</p>
+
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Click to Return" />
+    </form>
+
+    <a href="{% url 'pdf_view' book_instance.id %}">Generate Slip</a>
+{% endblock %}

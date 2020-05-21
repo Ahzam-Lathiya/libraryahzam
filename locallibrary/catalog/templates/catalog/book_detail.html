@@ -22,6 +22,10 @@
       {% endif %}
       <p><strong>Imprint:</strong> {{ copy.imprint }}</p>
       <p class="text-muted"><strong>Id:</strong> {{ copy.id }}</p>
+      {% if copy.status == 'a' %}
+      <a href= "{% url 'get-book-user' copy.id %}"> Get this Book</a>
+      <a href= "{% url 'reserve-book-user' copy.id %}"> Reserve this Book</a>
+      {% endif %}
     {% endfor %}
   </div>
 {% endblock %}

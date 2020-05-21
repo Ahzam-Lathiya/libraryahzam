@@ -6,14 +6,15 @@
     {% if bookinstance_list %}
     <ul>
 
-      {% for bookinst in bookinstance_list %} 
+      {% for bookinst in bookinstance_list %}
       <li class="{% if bookinst.is_overdue %}text-danger{% endif %}">
-        <a href="{% url 'book-detail' bookinst.book.pk %}">{{bookinst.book.title}}</a> Due Date: ({{ bookinst.due_back }})        
+        <a href="{% url 'book-detail' bookinst.book.pk %}">{{bookinst.book.title}}</a> Due Date ({{ bookinst.due_back }})
+        <a href="{% url 'return-book-user' bookinst.pk %}">Return This Book</a>
       </li>
       {% endfor %}
     </ul>
 
     {% else %}
       <p>There are no books borrowed.</p>
-    {% endif %}       
+    {% endif %}
 {% endblock %}

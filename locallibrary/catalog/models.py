@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from datetime import date
 import uuid
-
+from locallibrary import settings
 # Create your models here.
 
 class Genre(models.Model):
@@ -72,6 +72,16 @@ class BookInstance(models.Model):
         if self.due_back and date.today() > self.due_back:
             return True
         return False
+
+    @property
+    def calculate_due(self):
+        total_fine = 0
+        if(self.is_overdue):
+            total_fine = date.today() - self.due_back
+            total_fine = (total_fine.days) * 100
+
+        return total_fine
+        
 
 class Author(models.Model):
     first_name = models.CharField(max_length=100)

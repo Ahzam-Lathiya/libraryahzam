@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Book: {{book_instance.book.title}}</h1>
+    <p>Author: {{ book_instance.book.author }}
+    <p>{% if book_instance.status == 'a' %} Status: Available</p>
+    <p>{% elif book_instance.status == 'r' %} Status: Reserved</p>{% endif %}
+    <p>Imprint: {{ book_instance.imprint }}</p>
+    
+    <p>Renew or submit before: {{ due_date }} </p>
+
+    {% if book_instance.status == 'a' %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <input type="submit" value="Get Book" />
+    </form>
+    {% endif %}
+{% endblock %}
